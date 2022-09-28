@@ -11,16 +11,17 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+import sys
 
 from cli.rtw_parser import RtwParserComposer
 
 
 def main():
     # create the top-level parser
-    composer = RtwParserComposer()
-    parser = composer.compose_parser()
-    # ComposeCreateCommand(parser)
+    parser = RtwParserComposer()
     parser.parse_args()
+    if len(sys.argv) < 2:
+        parser.print_usage()
 
 
 if __name__ == "__main__":

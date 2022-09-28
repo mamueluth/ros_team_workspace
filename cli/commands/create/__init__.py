@@ -11,6 +11,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+from argparse import ArgumentParser
+from typing import Any
+
 
 from cli.parser_composer_abc import ParserComposerABC
 from .create_new_package import CreateNewPackageCommandParser
@@ -18,16 +21,23 @@ from .create_new_workspace import CreateNewWorkspaceCommandParser
 
 
 class ComposeCreateCommand(ParserComposerABC):
-    def compose_subparsers(self, sub_parsers):
-        # create the parse for the "create" sub-command
+    def create_parser(self, sub_parsers) -> ArgumentParser:
+        # create the parser for the "create" sub-command
         create_command_parser = sub_parsers.add_parser(
-            "create", help="Creates new [ros workspaces, ros package]."
+            "create", help="Create new-workspace or new-package."
         )
+        return create_command_parser
 
-        # create sub-parser for sub-command create
+    def add_arguments(self, parser) -> None:
+        pass
+
+    def create_subparser_group(self, create_command_parser) -> Any:
+        # create sub-parser group for sub-command create
         create_command_subparsers = create_command_parser.add_subparsers(
-            help="create new_workspace_parser command help"
+            help="Create new-workspace or new-package."
         )
+        return create_command_subparsers
 
+    def compose_subparsers(self, create_command_subparsers) -> None:
         CreateNewPackageCommandParser(create_command_subparsers)
         CreateNewWorkspaceCommandParser(create_command_subparsers)

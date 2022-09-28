@@ -13,13 +13,34 @@
 # limitations under the License.
 
 from abc import ABC, abstractmethod
+from argparse import ArgumentParser
+from typing import Any
 
 
 class ParserComposerABC(ABC):
-    def __init__(self, parser) -> None:
+    def __init__(self, subparsers) -> None:
         super().__init__()
-        self.compose_subparsers(parser)
+        self.compose_parser(subparsers)
+
+    def compose_parser(self, subparsers) -> ArgumentParser:
+        parser = self.create_parser(subparsers)
+        self.add_arguments(parser)
+        subsubparsers = self.create_subparser_group(parser)
+        self.compose_subparsers(subsubparsers)
+        return parser
 
     @abstractmethod
-    def compose_subparsers(self, parser):
+    def create_parser(self, sub_parsers) -> ArgumentParser:
+        pass
+
+    @abstractmethod
+    def add_arguments(self, parser) -> None:
+        pass
+
+    @abstractmethod
+    def create_subparser_group(self, parser) -> Any:
+        pass
+
+    @abstractmethod
+    def compose_subparsers(self, subsubparsers) -> None:
         pass

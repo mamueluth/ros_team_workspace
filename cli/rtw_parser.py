@@ -12,21 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import argparse
+from argparse import ArgumentParser
 
 from .commands.create import ComposeCreateCommand
+from .commands.setup import ComposeSetupCommand
 
 
 class RtwParserComposer:
-    def compose_parser(self):
-        parser = argparse.ArgumentParser(prog="rtw")
-        self.add_rtw_command_arguments(parser)
-        # create sub-parser
-        create_sub_parsers = parser.add_subparsers(
-            help="The created command is used for setting up new workspaces or packages."
-        )
-        ComposeCreateCommand(create_sub_parsers)
-        return parser
-
-    def add_rtw_command_arguments(self, parser):
+    def __new__(cls):
+        parser = ArgumentParser(prog="rtw")
         parser.add_argument("--version", action="version", version="%(prog)s 1.0")
+        sub_commands_parsers = parser.add_subparsers()
+        ComposeCreateCommand(sub_commands_parsers)
+        ComposeSetupCommand(sub_commands_parsers)
+        return parser

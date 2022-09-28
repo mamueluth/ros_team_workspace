@@ -11,3 +11,28 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+from argparse import ArgumentParser
+from typing import Any
+
+from cli.parser_composer_abc import ParserComposerABC
+from .setup_auto_sourcing import SetupAutoSourcingCommandParser
+
+
+class ComposeSetupCommand(ParserComposerABC):
+    def create_parser(self, subparsers) -> ArgumentParser:
+        # create the parser for the "setup" sub-command
+        setup_command_parser = subparsers.add_parser("setup", help="Setup auto-sourcing or ")
+        return setup_command_parser
+
+    def add_arguments(self, parser) -> None:
+        pass
+
+    def create_subparser_group(self, setup_command_parser) -> Any:
+        # create sub-parser group for sub-command setup
+        setup_command_subparsers = setup_command_parser.add_subparsers(
+            help="Create new-workspace or new-package."
+        )
+        return setup_command_subparsers
+
+    def compose_subparsers(self, setup_command_subparsers) -> None:
+        SetupAutoSourcingCommandParser(setup_command_subparsers)
