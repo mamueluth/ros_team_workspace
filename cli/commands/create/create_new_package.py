@@ -11,15 +11,24 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-from argparse import ArgumentParser
+from argparse import Action, ArgumentParser
 
+from cli.script_executor import ScriptExecutor
 from cli.subparser_abc import SubparserABC
 
 
-class CreateNewPackageCommandParser(SubparserABC):
-    def __init__(self, parser) -> None:
-        super().__init__(parser)
+class CreateNewPackageCommand:
+    def __init__(self) -> None:
+        self._script_path = (
+            "/home/stogl-robotics/workspaces/rtw/ros_team_workspace/scripts/test_script.bash"
+        )
+        self._script_executor = ScriptExecutor(self._script_path)
 
+    def execute(self):
+        self._script_executor.execute()
+
+
+class CreateNewPackageCommandParser(SubparserABC):
     def add_subparser(self, subparser_group) -> ArgumentParser:
         # create sub-command "new_package" for sub-command create
         new_package_parser = subparser_group.add_parser(

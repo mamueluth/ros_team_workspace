@@ -34,7 +34,7 @@ class ComposeCreateCommand(ParserComposerABC):
     def create_subparser_group(self, create_command_parser) -> Any:
         # create sub-parser group for sub-command create
         create_command_subparsers = create_command_parser.add_subparsers(
-            help="Create new-workspace or new-package."
+            help="Create new-workspace or new-package.", dest="subcommand"
         )
         return create_command_subparsers
 

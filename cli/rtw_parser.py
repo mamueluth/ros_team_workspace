@@ -18,11 +18,11 @@ from .commands.create import ComposeCreateCommand
 from .commands.setup import ComposeSetupCommand
 
 
-class RtwParserComposer:
+class RtwParser:
     def __new__(cls):
         parser = ArgumentParser(prog="rtw")
         parser.add_argument("--version", action="version", version="%(prog)s 1.0")
-        sub_commands_parsers = parser.add_subparsers()
+        sub_commands_parsers = parser.add_subparsers(dest="command")
         ComposeCreateCommand(sub_commands_parsers)
         ComposeSetupCommand(sub_commands_parsers)
         return parser
