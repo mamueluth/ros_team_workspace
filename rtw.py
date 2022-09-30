@@ -14,31 +14,20 @@
 import sys
 
 from cli.rtw_parser import RtwParser
-from cli.script_executor import ScriptExecutor
-
-
-class CreateNewPackageCommand:
-    def __init__(self) -> None:
-        self._script_path = (
-            "/home/stogl-robotics/workspaces/rtw/ros_team_workspace/scripts/test_script.bash"
-        )
-        self._script_executor = ScriptExecutor(self._script_path)
-
-    def execute(self):
-        self._script_executor.execute()
+from cli.mapper import MapToCommand
 
 
 def main():
     # create the top-level parser
     parser = RtwParser()
-    options = parser.parse_args(args=None if sys.argv[1:] else ["--help"])
+    args = parser.parse_args(args=None if sys.argv[1:] else ["--help"])
     print("#" * 10)
-    print(f"Command:{options.command} {options.subcommand}")
-    print(f"with Options:{options}")
+    print(f"Command:{args.command} {args.subcommand}")
+    print(f"with args:{args}")
     print("#" * 10)
-    if options.command == "create" and options.subcommand == "new-workspace":
-        pkg_cmd = CreateNewPackageCommand()
-        pkg_cmd.execute()
+    mapper = MapToCommand()
+    executor = mapper.map_to_executor(f"{args.command} {args.subcommand}")
+    executor.execute(args)
 
 
 if __name__ == "__main__":

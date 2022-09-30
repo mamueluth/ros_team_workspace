@@ -13,18 +13,19 @@
 # limitations under the License.
 from argparse import Action, ArgumentParser
 
+from cli.command_executor_abc import CommandExecutor
 from cli.script_executor import ScriptExecutor
 from cli.subparser_abc import SubparserABC
 
 
-class CreateNewPackageCommand:
+class CreateNewPackageCommand(CommandExecutor):
     def __init__(self) -> None:
         self._script_path = (
             "/home/stogl-robotics/workspaces/rtw/ros_team_workspace/scripts/test_script.bash"
         )
         self._script_executor = ScriptExecutor(self._script_path)
 
-    def execute(self):
+    def execute(self, args):
         self._script_executor.execute()
 
 

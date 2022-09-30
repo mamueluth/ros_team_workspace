@@ -37,7 +37,7 @@ class ScriptExecutor:
             )
         self._script = script
 
-    def execute(self):
+    def execute(self, args=None):
         try:
             subprocess.call([self._shell, self.script])
         except:
