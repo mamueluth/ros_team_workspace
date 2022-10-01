@@ -15,9 +15,9 @@ from argparse import ArgumentParser
 from typing import Any
 
 
-from cli.parser_composer_abc import ParserComposerABC
-from .create_new_package import CreateNewPackageCommandParser
-from .create_new_workspace import CreateNewWorkspaceCommandParser
+from rtw.cli.parser_composer_abc import ParserComposerABC
+from .create_new_package import CreateNewPackageCommandParser, CreateNewPackageCommand
+from .create_new_workspace import CreateNewWorkspaceCommandParser, CreateNewWorkspaceCommand
 
 
 class ComposeCreateCommand(ParserComposerABC):

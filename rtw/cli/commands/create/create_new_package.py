@@ -11,22 +11,24 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-from argparse import Action, ArgumentParser
+from argparse import ArgumentParser
+from functools import reduce
+from pathlib import Path
 
-from cli.command_executor_abc import CommandExecutor
-from cli.script_executor import ScriptExecutor
-from cli.subparser_abc import SubparserABC
+from rtw.cli.command_executor_abc import CommandExecutor
+from rtw.cli.script_executor import ScriptExecutor
+from rtw.cli.subparser_abc import SubparserABC
+from rtw.definitions import PATHS
 
 
 class CreateNewPackageCommand(CommandExecutor):
     def __init__(self) -> None:
-        self._script_path = (
-            "/home/stogl-robotics/workspaces/rtw/ros_team_workspace/scripts/test_script.bash"
-        )
-        self._script_executor = ScriptExecutor(self._script_path)
+        self._script_path = Path(PATHS.get("scripts"), "test_script.bash")
+        self._script_executor = ScriptExecutor()
 
     def execute(self, args):
-        self._script_executor.execute()
+        description = reduce(lambda x, y: x + " " + y, args.description)
+        self._script_executor.execute(self._script_path, args.pkg_name, description)
 
 
 class CreateNewPackageCommandParser(SubparserABC):
@@ -45,6 +47,6 @@ class CreateNewPackageCommandParser(SubparserABC):
             "pkg_name", type=str, help="Provide the name of the package you would like to create."
         )
         new_package_parser.add_argument(
-            "description", type=str, help="Provide a description of your package."
+            "description", type=str, nargs="+", help="Provide a description of your package."
         )
         return

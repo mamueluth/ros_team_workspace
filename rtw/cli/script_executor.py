@@ -19,26 +19,20 @@ from pathlib import Path
 
 
 class ScriptExecutor:
-    def __init__(self, script: str) -> None:
-        self.script = script
-        self._shell = "sh"
+    def __init__(self) -> None:
+        self._shell = "bash"
 
-    @property
-    def script(self):
-        return self._script
-
-    @script.setter
-    def script(self, script):
-        if not Path(script).is_file():
+    def execute(self, script: Path, *argv):
+        if not script.is_file():
             raise FileNotFoundError(
                 errno.ENOENT,
                 os.strerror(errno.ENOENT),
                 f'The script:"{script}" passed to the ScriptExecutor does not exist.',
             )
-        self._script = script
 
-    def execute(self, args=None):
+        cmd = [script] + [arg for arg in argv if arg != None]
+        print(cmd)
         try:
-            subprocess.call([self._shell, self.script])
+            subprocess.run(cmd, check=True, text=True)
         except:
             pass

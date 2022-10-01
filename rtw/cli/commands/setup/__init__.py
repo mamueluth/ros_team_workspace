@@ -14,7 +14,7 @@
 from argparse import ArgumentParser
 from typing import Any
 
-from cli.parser_composer_abc import ParserComposerABC
+from rtw.cli.parser_composer_abc import ParserComposerABC
 from .setup_auto_sourcing import SetupAutoSourcingCommandParser
 
 

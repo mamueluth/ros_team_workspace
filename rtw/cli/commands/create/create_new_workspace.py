@@ -12,8 +12,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 from argparse import ArgumentParser
+from pathlib import Path
 
-from cli.subparser_abc import SubparserABC
+from rtw.cli.subparser_abc import SubparserABC
+from rtw.cli.command_executor_abc import CommandExecutor
+from rtw.cli.script_executor import ScriptExecutor
+from rtw.definitions import PATHS
+
+
+class CreateNewWorkspaceCommand(CommandExecutor):
+    def __init__(self) -> None:
+        self._script_path = Path(PATHS.get("scripts"), "test_script.bash")
+        self._script_executor = ScriptExecutor()
+
+    def execute(self, args):
+        self._script_executor.execute(
+            self._script_path, args.workspace_name, args.ros_distribution
+        )
 
 
 class CreateNewWorkspaceCommandParser(SubparserABC):

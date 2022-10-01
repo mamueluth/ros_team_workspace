@@ -13,12 +13,14 @@
 # limitations under the License.
 import sys
 
-from cli.rtw_parser import RtwParser
-from cli.mapper import MapToCommand
+from rtw.cli.rtw_parser import RtwParser
+from rtw.cli.mapper import MapToCommand
+from rtw.definitions import PATHS
 
 
 def main():
     # create the top-level parser
+
     parser = RtwParser()
     args = parser.parse_args(args=None if sys.argv[1:] else ["--help"])
     print("#" * 10)
@@ -26,7 +28,7 @@ def main():
     print(f"with args:{args}")
     print("#" * 10)
     mapper = MapToCommand()
-    executor = mapper.map_to_executor(f"{args.command} {args.subcommand}")
+    executor = mapper.map_to_executor(args)
     executor.execute(args)
 
 

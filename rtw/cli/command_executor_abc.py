@@ -1,9 +1,7 @@
 from abc import ABC, abstractmethod
 
-from cli.script_executor import ScriptExecutor
 
-
-class CommandExecutor:
+class CommandExecutor(ABC):
     @abstractmethod
     def execute(self, args):
         pass

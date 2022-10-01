@@ -13,7 +13,7 @@
 # limitations under the License.
 from argparse import ArgumentParser
 
-from cli.subparser_abc import SubparserABC
+from rtw.cli.subparser_abc import SubparserABC
 
 
 class SetupAutoSourcingCommandParser(SubparserABC):
