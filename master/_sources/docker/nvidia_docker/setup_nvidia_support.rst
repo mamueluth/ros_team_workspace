@@ -12,7 +12,7 @@ Before we can install the NVIDIA Container Toolkit we have to install the nvidia
 **NOTE**: Check the end of the file for some tips about throubleshoting.
 
 Nvidia drivers
-----------------
+---------------
 Make sure you have the NVIDIA drivers for your Linux distribution installed. This can either be done by using your package manager or you can download the ``.run`` installers from `NVIDIA Driver Downloads <https://www.nvidia.com/Download/index.aspx?lang=en-us>`_.
 This depends on the operating system and package manager you are using so you have to look it up.
 You can then check your drivers by typing
@@ -47,8 +47,8 @@ Which should print something like this:
   |    0   N/A  N/A      2516      G   ....0.2/bin/.firefox-wrapped      144MiB |
   +-----------------------------------------------------------------------------+
 
-Docker
-----------------
+Docker installation
+--------------------
 .. _docker-nvidia-support-prerequisites_docker:
 
 Make sure docker is installed and it's working correctly. For instructions on how to install docker have a look :ref:`in general info on docker installation <general-info-on-docker-installation>`.
@@ -157,14 +157,7 @@ Change the Dockerfile
 
    .. code-block:: bash
 
-      .\build_docker_image
-
-   to rebuild your container. After the rebuilt has finished you can recreate it with
-
-   .. code-block:: bash
-
-      .\create_docker_container
-
+      ./recreate_docker.sh
 
 You now should have a docker container which exposes your nvidia drivers and can switch to your workspace with ``rtw_switch_to_docker``.
 

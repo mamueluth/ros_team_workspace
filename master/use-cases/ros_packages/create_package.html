@@ -7,8 +7,9 @@
   <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script defer data-domain="rtw.stoglrobotics.de" src="https://plausible.io/js/script.js"></script>
   
-  <title>Create New Package &mdash; ROS Team Workspace Documentation: Galactic Oct 2022 documentation</title>
+  <title>Create New Package &mdash; ROS Team Workspace Documentation: Galactic Oct 2023 documentation</title>
   
 
   
@@ -28,7 +29,7 @@
   
 
   
-    <link rel="canonical" href="https://stoglrobotics.github.io/ros_team_workspace/galactic//galactic/use-cases/ros_packages/create_package.html" />
+    <link rel="canonical" href="https://rtw.stoglrobotics.de/galactic//galactic/use-cases/ros_packages/create_package.html" />
 
   
   <!--[if lt IE 9]>
@@ -112,6 +113,7 @@
 <li class="toctree-l2"><a class="reference internal" href="setup_robot_description_package.html">Setup robot description</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ros2_control/setup_controller.html">ros2_control: Setup controller package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ros2_control/setup_robot_hardware_interface.html">ros2_control: Setup robot’s hardware package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros_workspaces/aliases.html">RTW Aliases</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../docker/index.html">Docker</a></li>
@@ -192,11 +194,16 @@
 <p id="uc-new-package">This use-case describes how to create a new package using scripts from the ROS Team Workspace (RosTeamWS) framework.</p>
 <section id="general-script-for-creating-packages">
 <h2>General Script for Creating Packages<a class="headerlink" href="#general-script-for-creating-packages" title="Permalink to this headline"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">create-new-package</span></code> script is used, accepting the package name and description as parameters.
-The script <strong>has to be executed</strong> from the <em>source</em> folder of your workspace.</p>
+<p><code class="docutils literal notranslate"><span class="pre">create-new-package</span></code> script is used, accepting the package name and description as parameters.</p>
+<blockquote>
+<div><div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The script <strong>has to be executed</strong> from the <em>source</em> folder of your workspace.</p>
+</div>
+</div></blockquote>
 <div class="literal-block-wrapper docutils container" id="create-package">
 <div class="code-block-caption"><span class="caption-text">Usage of script for setting up new packages.</span><a class="headerlink" href="#create-package" title="Permalink to this code"></a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>create-new-package NAME DESCRIPTION
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>create-new-package<span class="w"> </span>NAME<span class="w"> </span>DESCRIPTION
 </pre></div>
 </div>
 </div>
@@ -210,12 +217,8 @@ If you make any wrong decision or enter incorrect data, use &lt;CTRL&gt;+C keys 
 <li><p>If subpackage, then you will need to enter the name of its metapackage</p></li>
 </ul>
 </li>
-<li><p>License (string) - enter a full name to add into package.xml</p></li>
-<li><p>Manual input of the maintainer or using data from git-config - (y/n)</p>
-<ul class="simple">
-<li><p>If <em>yes</em> then you should enter the full name and email address of the maintainer</p></li>
-</ul>
-</li>
+<li><p>License (string) - choose a license to add into package.xml - multiple choice</p></li>
+<li><p>Maintainer info: name and email (user input, local git, global git) - multiple choice</p></li>
 <li><p>Package build type (ament_cmake, ament_python, cmake) - multiple choice</p></li>
 <li><p>Create/Update repository with CI configuration - (y/n)</p></li>
 </ol>
@@ -240,7 +243,7 @@ Check <a class="reference internal" href="configure_repository.html#uc-configure
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2022, Stogl Robotics Consulting UG (haftungsbeschränkt).
+        &#169; Copyright 2023, Stogl Robotics Consulting UG (haftungsbeschränkt).
 
     </p>
   </div>
