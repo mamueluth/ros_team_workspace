@@ -232,7 +232,7 @@ html_theme_options = {
 
 html_context = {
     "display_github": True,
-    "github_user": "b»robotized",
+    "github_user": "b-robotized",
     "github_repo": "ros_team_workspace",
     "github_version": repos_file_branch + "/",
     "conf_py_path": "/docs/",
