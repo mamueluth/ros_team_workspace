@@ -4,12 +4,13 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script defer data-domain="rtw.stoglrobotics.de" src="https://plausible.io/js/script.js"></script>
+  <script defer data-domain="rtw.b-robotized.com" src="https://plausible.io/js/script.file-downloads.hash.outbound-links.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
   
-  <title>RTW Aliases &mdash; ROS Team Workspace Documentation: Galactic Oct 2023 documentation</title>
+  <title>RTW Aliases &mdash; ROS Team Workspace Documentation: Humble Apr 2025 documentation</title>
   
 
   
@@ -18,7 +19,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
 
   
   
@@ -29,7 +30,7 @@
   
 
   
-    <link rel="canonical" href="https://rtw.stoglrobotics.de/galactic//galactic/use-cases/ros_workspaces/aliases.html" />
+    <link rel="canonical" href="https://rtw.b-robotized.com/humble//humble/use-cases/ros_workspaces/aliases.html" />
 
   
   <!--[if lt IE 9]>
@@ -41,6 +42,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
@@ -70,7 +72,7 @@
 
           
             
-            <img src="../../_static/galactic-small.png" class="logo" alt="Logo"/>
+            <img src="../../_static/humble.svg" class="logo" alt="Logo"/>
           
           </a>
 
@@ -101,6 +103,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rtwcli/index.html">RTW CLI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guidelines/index.html">Guidelines</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Use Cases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../operating_system/create_setup_workspace.html">Setup a new Workspace</a></li>
@@ -114,6 +117,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#standard-rtw-aliases">Standard RTW Aliases</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#explanation-of-standard-aliases">Explanation of Standard Aliases</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#entering-workspace-folders">Entering Workspace Folders</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#installling-dependencies">Installling dependencies</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#building-packages-in-workspace">Building Packages in Workspace</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#executing-package-tests">Executing Package Tests</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#executing-multiple-commands">Executing Multiple Commands</a></li>
@@ -144,7 +148,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">ROS Team Workspace Documentation: Galactic</a>
+          <a href="../../index.html">ROS Team Workspace Documentation: Humble</a>
         
       </nav>
 
@@ -186,7 +190,7 @@
         
           
             
-              <a href="https://github.com/StoglRobotics/ros_team_workspace/blob/master//docs/use-cases/ros_workspaces/aliases.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/b-robotized/ros_team_workspace/blob/master//docs/use-cases/ros_workspaces/aliases.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -201,23 +205,25 @@
            <div itemprop="articleBody">
             
   <section id="rtw-aliases">
-<h1>RTW Aliases<a class="headerlink" href="#rtw-aliases" title="Permalink to this headline"></a></h1>
+<h1>RTW Aliases<a class="headerlink" href="#rtw-aliases" title="Permalink to this heading"></a></h1>
 <section id="standard-rtw-aliases">
-<span id="uc-aliases"></span><h2>Standard RTW Aliases<a class="headerlink" href="#standard-rtw-aliases" title="Permalink to this headline"></a></h2>
+<span id="uc-aliases"></span><h2>Standard RTW Aliases<a class="headerlink" href="#standard-rtw-aliases" title="Permalink to this heading"></a></h2>
 <p>Standard RTW aliases are configured out-of-the-box and they enable you to use the same command independently of the workspace you are in and help you hide <code class="docutils literal notranslate"><span class="pre">colcon</span></code> complexities and minimize errors when interacting with it.
 The aliases set for each workspace (see <a class="reference internal" href="../../tutorials/managing_multiple_workspaces.html#tutorial-managing-multiple-workspaces"><span class="std std-ref">ṁanaging multiple workspaces</span></a>) setup environment variables so that following aliases can interact with that specific workspace.</p>
 <section id="explanation-of-standard-aliases">
-<h3>Explanation of Standard Aliases<a class="headerlink" href="#explanation-of-standard-aliases" title="Permalink to this headline"></a></h3>
+<h3>Explanation of Standard Aliases<a class="headerlink" href="#explanation-of-standard-aliases" title="Permalink to this heading"></a></h3>
 <p>The standard aliases are callable from any folder as long as a workspace is sourced using <code class="docutils literal notranslate"><span class="pre">_&lt;workspace_name&gt;</span></code> alias.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To make this reading short, Dr. Denis’ favorite aliases are <code class="docutils literal notranslate"><span class="pre">cb</span></code>, <code class="docutils literal notranslate"><span class="pre">ca</span></code> and <code class="docutils literal notranslate"><span class="pre">crm</span></code> - simply start with using those.</p>
 </div>
 <section id="entering-workspace-folders">
-<h4>Entering Workspace Folders<a class="headerlink" href="#entering-workspace-folders" title="Permalink to this headline"></a></h4>
+<h4>Entering Workspace Folders<a class="headerlink" href="#entering-workspace-folders" title="Permalink to this heading"></a></h4>
 <dl class="simple">
-<dt>rosd</dt><dd><p>Enter the root directory of the ROS workspace.
-Alias for command: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">$ROS_WS</span></code></p>
+<dt>rosd [&lt;package_name&gt;]</dt><dd><p>Enter the root directory of the ROS workspace.
+Alias for command: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">$ROS_WS</span></code>
+If you add argument <code class="docutils literal notranslate"><span class="pre">&lt;package_name&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">rosd</span></code> enters the source folder of that package.
+And if your workspace is already compiled you can use auto-completion of package names.</p>
 </dd>
 <dt>rosds</dt><dd><p>Enter <code class="docutils literal notranslate"><span class="pre">src</span></code> directory of the ROS workspace.
 Alias for command: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">$ROS_WS/src</span></code></p>
@@ -230,8 +236,16 @@ Alias for command: <code class="docutils literal notranslate"><span class="pre">
 </dd>
 </dl>
 </section>
+<section id="installling-dependencies">
+<h4>Installling dependencies<a class="headerlink" href="#installling-dependencies" title="Permalink to this heading"></a></h4>
+<dl class="simple" id="uc-aliases-dependencies">
+<dt>rosdepi</dt><dd><p>Installing dependencies for the packages in <code class="docutils literal notranslate"><span class="pre">$ROS_WS/src</span></code> folder.
+Makes the <code class="docutils literal notranslate"><span class="pre">rosdep</span></code> command shorter and simpler to use: <code class="docutils literal notranslate"><span class="pre">rosdep</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">-i</span> <span class="pre">--from-paths</span> <span class="pre">\$ROS_WS/src</span></code></p>
+</dd>
+</dl>
+</section>
 <section id="building-packages-in-workspace">
-<h4>Building Packages in Workspace<a class="headerlink" href="#building-packages-in-workspace" title="Permalink to this headline"></a></h4>
+<h4>Building Packages in Workspace<a class="headerlink" href="#building-packages-in-workspace" title="Permalink to this heading"></a></h4>
 <p>Every alias has optional package names. If none is provided the whole workspace is built.</p>
 <dl class="simple">
 <dt>cb [package1_name, package2_name]</dt><dd><p>Building named packages or the whole workspace.
@@ -249,7 +263,7 @@ Alias for command: <code class="docutils literal notranslate"><span class="pre">
 </dl>
 </section>
 <section id="executing-package-tests">
-<h4>Executing Package Tests<a class="headerlink" href="#executing-package-tests" title="Permalink to this headline"></a></h4>
+<h4>Executing Package Tests<a class="headerlink" href="#executing-package-tests" title="Permalink to this heading"></a></h4>
 <p>Every alias has optional package names. If none is provided the whole workspace is built.</p>
 <dl class="simple">
 <dt>ct [package1_name, package2_name]</dt><dd><p>Testing named packages or the whole workspace.
@@ -264,7 +278,7 @@ Alias for command: <code class="docutils literal notranslate"><span class="pre">
 </dl>
 </section>
 <section id="executing-multiple-commands">
-<h4>Executing Multiple Commands<a class="headerlink" href="#executing-multiple-commands" title="Permalink to this headline"></a></h4>
+<h4>Executing Multiple Commands<a class="headerlink" href="#executing-multiple-commands" title="Permalink to this heading"></a></h4>
 <p>Every alias has optional package names. If none is provided the whole workspace is built.</p>
 <dl class="simple">
 <dt>ca [package1_name, package2_name]</dt><dd><p>Build, test and show test results for the named packages or the whole workspace.</p>
@@ -274,7 +288,7 @@ Alias for command: <code class="docutils literal notranslate"><span class="pre">
 </dl>
 </section>
 <section id="cleaning-workspace">
-<h4>Cleaning Workspace<a class="headerlink" href="#cleaning-workspace" title="Permalink to this headline"></a></h4>
+<h4>Cleaning Workspace<a class="headerlink" href="#cleaning-workspace" title="Permalink to this heading"></a></h4>
 <dl class="simple">
 <dt>crm [package1_name, package2_name]</dt><dd><p>Remove <code class="docutils literal notranslate"><span class="pre">build</span></code>, <code class="docutils literal notranslate"><span class="pre">log</span></code> and <code class="docutils literal notranslate"><span class="pre">install</span></code> folders for the workspace or corresponding sub-folders for specific packages.</p>
 </dd>
@@ -283,7 +297,7 @@ Alias for command: <code class="docutils literal notranslate"><span class="pre">
 </section>
 </section>
 <section id="defining-your-own-aliases">
-<h2>Defining Your Own Aliases<a class="headerlink" href="#defining-your-own-aliases" title="Permalink to this headline"></a></h2>
+<h2>Defining Your Own Aliases<a class="headerlink" href="#defining-your-own-aliases" title="Permalink to this heading"></a></h2>
 <p><strong>TBD</strong></p>
 <p>Idea: sharing aliases with your team that are very specific for your use-cases.</p>
 </section>
@@ -303,7 +317,7 @@ Alias for command: <code class="docutils literal notranslate"><span class="pre">
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2023, Stogl Robotics Consulting UG (haftungsbeschränkt).
+        &#169; Copyright 2025, Stogl Robotics Consulting UG (haftungsbeschränkt).
 
     </p>
   </div>
@@ -332,12 +346,13 @@ Alias for command: <code class="docutils literal notranslate"><span class="pre">
   </span>
   <div class="rst-other-versions">
     <dl>
-      <dt>ROS Team Workspace - Galactic and Rolling</dt>
+<!--       <dt>ROS Team Workspace - Galactic and Rolling</dt> -->
       <dd><a href="aliases.html">Master (latest)</a></dd>
     </dl>
     <dl>
-      <dt>ROS Team Workspace - Foxy</dt>
-        <dd><a href="../../../foxy/index.html">Foxy</a></dd>
+<!--       <dt>ROS Team Workspace - Foxy</dt> -->
+        <dd><a href="../../../foxy/index.html">Foxy (EOL)</a></dd>
+        
    </dl>
   </div>
 </div>

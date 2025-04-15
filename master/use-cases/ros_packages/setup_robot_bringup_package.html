@@ -4,12 +4,13 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script defer data-domain="rtw.stoglrobotics.de" src="https://plausible.io/js/script.js"></script>
+  <script defer data-domain="rtw.b-robotized.com" src="https://plausible.io/js/script.file-downloads.hash.outbound-links.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
   
-  <title>Setup robot bringup &mdash; ROS Team Workspace Documentation: Galactic Oct 2023 documentation</title>
+  <title>Setup robot bringup &mdash; ROS Team Workspace Documentation: Humble Apr 2025 documentation</title>
   
 
   
@@ -18,7 +19,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
 
   
   
@@ -29,7 +30,7 @@
   
 
   
-    <link rel="canonical" href="https://rtw.stoglrobotics.de/galactic//galactic/use-cases/ros_packages/setup_robot_bringup_package.html" />
+    <link rel="canonical" href="https://rtw.b-robotized.com/humble//humble/use-cases/ros_packages/setup_robot_bringup_package.html" />
 
   
   <!--[if lt IE 9]>
@@ -41,6 +42,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
@@ -70,7 +72,7 @@
 
           
             
-            <img src="../../_static/galactic-small.png" class="logo" alt="Logo"/>
+            <img src="../../_static/humble.svg" class="logo" alt="Logo"/>
           
           </a>
 
@@ -101,6 +103,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rtwcli/index.html">RTW CLI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guidelines/index.html">Guidelines</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Use Cases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../operating_system/create_setup_workspace.html">Setup a new Workspace</a></li>
@@ -133,7 +136,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">ROS Team Workspace Documentation: Galactic</a>
+          <a href="../../index.html">ROS Team Workspace Documentation: Humble</a>
         
       </nav>
 
@@ -175,7 +178,7 @@
         
           
             
-              <a href="https://github.com/StoglRobotics/ros_team_workspace/blob/master//docs/use-cases/ros_packages/setup_robot_bringup_package.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/b-robotized/ros_team_workspace/blob/master//docs/use-cases/ros_packages/setup_robot_bringup_package.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -190,31 +193,38 @@
            <div itemprop="articleBody">
             
   <section id="setup-robot-bringup">
-<h1>Setup robot bringup<a class="headerlink" href="#setup-robot-bringup" title="Permalink to this headline"></a></h1>
-<p id="uc-setup-robot-bringup">This use-case describes how to set up a robot bringup package using scripts from ROS Team Workspace (RosTeamWS) framework.
-The package follows as far as possible best practices for <a class="reference external" href="http://wiki.ros.org/Industrial/Tutorials/WorkingWithRosIndustrialRobotSupportPackages">robot support packages</a> from ROS-Industrial consortia. (<strong>This has to be verified!</strong>)</p>
+<h1>Setup robot bringup<a class="headerlink" href="#setup-robot-bringup" title="Permalink to this heading"></a></h1>
+<p id="uc-setup-robot-bringup">This use-case describes how to set up a robot bringup package using scripts
+from ROS Team Workspace (RTW) framework.
+The package follows as far as possible best practices for
+<a class="reference external" href="http://wiki.ros.org/Industrial/Tutorials/WorkingWithRosIndustrialRobotSupportPackages">robot support packages</a>
+from ROS-Industrial consortia. (<strong>This has to be verified!</strong>)</p>
 <section id="script-for-setting-up-a-bringup-package">
-<h2>Script for Setting up a Bringup Package<a class="headerlink" href="#script-for-setting-up-a-bringup-package" title="Permalink to this headline"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">setup-robot-bringup</span></code> script accepts the robot name and the robot description package name.
-The package name is obtained from the ‘package.xml’ file.</p>
+<h2>Script for Setting up a Bringup Package<a class="headerlink" href="#script-for-setting-up-a-bringup-package" title="Permalink to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">setup-robot-bringup</span></code> script accepts the robot name and the robot description
+package name. The package name is obtained from the ‘package.xml’ file.</p>
 <blockquote>
 <div><div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>it is recommended to setup your package using <a class="reference internal" href="create_package.html#uc-new-package"><span class="std std-ref">setup-new-package</span></a> script.</p>
+<p>It is recommended to setup your package using
+<a class="reference internal" href="create_package.html#uc-new-package"><span class="std std-ref">setup-new-package</span></a> script.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The script <strong>has to be executed</strong> from the folder where the package should be generated.</p>
+<p>The script <strong>has to be executed</strong> in the root folder of the
+<strong>ament_cmake</strong> package where the robot bringup files are to be generated.</p>
 </div>
 </div></blockquote>
-<p>The scripts copies template files from the <code class="docutils literal notranslate"><span class="pre">templates/robot_bringup</span></code> folder, renames the files, and replaces the placeholders.</p>
+<p>The scripts copies template files from the <code class="docutils literal notranslate"><span class="pre">templates/robot_bringup</span></code> folder,
+renames the files, and replaces the placeholders.</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Usage of script for setting up the robot bringup.</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>setup-robot-bringup<span class="w"> </span>ROBOT_NAME<span class="w"> </span>DESCRIPTION_PKG_NAME
 </pre></div>
 </div>
 </div>
-<p>After all files are copied and placeholders set, changes are automatically staged in git.</p>
+<p>After all files are copied and placeholders set, changes are automatically
+staged in git.</p>
 </section>
 </section>
 
@@ -232,7 +242,7 @@ The package name is obtained from the ‘package.xml’ file.</p>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2023, Stogl Robotics Consulting UG (haftungsbeschränkt).
+        &#169; Copyright 2025, Stogl Robotics Consulting UG (haftungsbeschränkt).
 
     </p>
   </div>
@@ -261,12 +271,13 @@ The package name is obtained from the ‘package.xml’ file.</p>
   </span>
   <div class="rst-other-versions">
     <dl>
-      <dt>ROS Team Workspace - Galactic and Rolling</dt>
+<!--       <dt>ROS Team Workspace - Galactic and Rolling</dt> -->
       <dd><a href="setup_robot_bringup_package.html">Master (latest)</a></dd>
     </dl>
     <dl>
-      <dt>ROS Team Workspace - Foxy</dt>
-        <dd><a href="../../../foxy/use-cases/ros_packages/setup_robot_bringup_package.html">Foxy</a></dd>
+<!--       <dt>ROS Team Workspace - Foxy</dt> -->
+        <dd><a href="../../../foxy/use-cases/ros_packages/setup_robot_bringup_package.html">Foxy (EOL)</a></dd>
+        
    </dl>
   </div>
 </div>

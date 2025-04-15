@@ -4,10 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script defer data-domain="rtw.stoglrobotics.de" src="https://plausible.io/js/script.js"></script>
+  <script defer data-domain="rtw.b-robotized.com" src="https://plausible.io/js/script.file-downloads.hash.outbound-links.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
   
   <title>ros2_control: Setup controller package &mdash; ROS Team Workspace Documentation: Foxy Jan 2021 documentation</title>
   
@@ -18,7 +19,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
 
   
   
@@ -29,7 +30,7 @@
   
 
   
-    <link rel="canonical" href="https://rtw.stoglrobotics.de/galactic//foxy/use-cases/ros2_control/setup_controller.html" />
+    <link rel="canonical" href="https://rtw.b-robotized.com/humble//foxy/use-cases/ros2_control/setup_controller.html" />
 
   
   <!--[if lt IE 9]>
@@ -41,6 +42,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
@@ -70,7 +72,7 @@
 
           
             
-            <img src="../../_static/foxy-small.png" class="logo" alt="Logo"/>
+            <img src="../../_static/foxy.svg" class="logo" alt="Logo"/>
           
           </a>
 
@@ -172,7 +174,7 @@
         
           
             
-              <a href="https://github.com/StoglRobotics/ros_team_workspace/blob/foxy//docs/use-cases/ros2_control/setup_controller.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/b-robotized/ros_team_workspace/blob/foxy//docs/use-cases/ros2_control/setup_controller.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -187,14 +189,14 @@
            <div itemprop="articleBody">
             
   <section id="ros2-control-setup-controller-package">
-<h1>ros2_control: Setup controller package<a class="headerlink" href="#ros2-control-setup-controller-package" title="Permalink to this headline"></a></h1>
+<h1>ros2_control: Setup controller package<a class="headerlink" href="#ros2-control-setup-controller-package" title="Permalink to this heading"></a></h1>
 <p id="uc-setup-ros2-controller">This use-case describes how to set up a controller for the ros2_control framework using scripts from ROS Team Workspace (RosTeamWS) framework.
 The scripts uses template files from <code class="docutils literal notranslate"><span class="pre">templates/ros2_control/controller</span></code> folder.
 The script creates a full skeleton of a controller with plugin description and tests for loading controller and checking its basic functionality.</p>
 <p><strong>Note</strong>: it is recommended to setup your package using <a class="reference internal" href="../ros_packages/create_package.html#uc-new-package"><span class="std std-ref">setup-new-package</span></a> script.</p>
 <p><strong>IMPORTANT</strong>: The script <strong>has to be executed</strong> from the folder where the package should be generated.</p>
 <section id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Usage of script for setting up a controller.</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2_control_setup-controller-package<span class="w"> </span>FILE_NAME<span class="w"> </span><span class="o">[</span>CLASS_NAME<span class="o">]</span><span class="w"> </span><span class="o">[</span>PKG_NAME<span class="o">]</span>
@@ -231,7 +233,7 @@ If not set, it is guessed from the current path using the folder’s name.</p></
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2023, Stogl Robotics Consulting UG (haftungsbeschränkt).
+        &#169; Copyright 2025, Stogl Robotics Consulting UG (haftungsbeschränkt).
 
     </p>
   </div>
@@ -260,12 +262,13 @@ If not set, it is guessed from the current path using the folder’s name.</p></
   </span>
   <div class="rst-other-versions">
     <dl>
-      <dt>ROS Team Workspace - Galactic and Rolling</dt>
+<!--       <dt>ROS Team Workspace - Galactic and Rolling</dt> -->
       <dd><a href="../../../master/use-cases/ros2_control/setup_controller.html">Master (latest)</a></dd>
     </dl>
     <dl>
-      <dt>ROS Team Workspace - Foxy</dt>
-        <dd><a href="setup_controller.html">Foxy</a></dd>
+<!--       <dt>ROS Team Workspace - Foxy</dt> -->
+        <dd><a href="setup_controller.html">Foxy (EOL)</a></dd>
+        
    </dl>
   </div>
 </div>

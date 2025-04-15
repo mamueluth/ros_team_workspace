@@ -19,9 +19,12 @@ The standard aliases are callable from any folder as long as a workspace is sour
 
 Entering Workspace Folders
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-rosd
+rosd [<package_name>]
   Enter the root directory of the ROS workspace.
   Alias for command: ``cd $ROS_WS``
+  If you add argument ``<package_name>``, ``rosd`` enters the source folder of that package.
+  And if your workspace is already compiled you can use auto-completion of package names.
+
 
 rosds
   Enter ``src`` directory of the ROS workspace.
@@ -34,6 +37,15 @@ rosdb
 rosdi
   Enter ``install`` directory of the ROS workspace.
   Alias for command: ``cd $ROS_WS/install``
+
+
+Installling dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^
+.. _uc-aliases-dependencies:
+
+rosdepi
+  Installing dependencies for the packages in ``$ROS_WS/src`` folder.
+  Makes the ``rosdep`` command shorter and simpler to use: ``rosdep install -y -i --from-paths \$ROS_WS/src``
 
 
 Building Packages in Workspace
